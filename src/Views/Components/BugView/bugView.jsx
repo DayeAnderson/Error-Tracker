@@ -2,9 +2,11 @@ import React from 'react'
 import ViewSection from './Component/bugViewSection'
 import './bugView.css'
 import BugModel from '../../../Models/bugModel'
-import BugView from '../../Pages/viewBugs'
+import {useDispatch} from 'react-redux'
+import {markComplete} from '../../../Controllers/Redux/bugSlice'
 
 export default (props)=>{
+    const dispatch = useDispatch
     const bug = new BugModel(props.bug)
 
     return(
@@ -17,7 +19,7 @@ export default (props)=>{
             <ViewSection title='Creator' info={bug.creator} />
             <ViewSection title='App Version' info={bug.version} />
             <ViewSection title='Time Created' info={bug.time} />
-
+            <button onClick={()=>{dispatch(markComplete)}}>Mark Complete</button>
         </div>
     )
 }

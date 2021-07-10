@@ -28,7 +28,7 @@ export default()=>{
                 <BugCard key={key} bug={bug} clicked={BugClicked}/>
 
             ))}
-            {DISPLAY_BUG.isDisplayed && <BugView bug={bugs.filter((bug)=> bug.name == DISPLAY_BUG.name
+            {DISPLAY_BUG.isDisplayed && <BugView clicked={BugClicked} bug={bugs.filter((bug)=> bug.name == DISPLAY_BUG.name
             )[0]}/>}
         </div>
     )
