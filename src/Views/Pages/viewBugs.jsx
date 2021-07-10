@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getBugs} from '../../Controllers/Redux/bugSlice'
-import BugCard from '../BugCard/bugCard'
+import BugCard from '../Components/BugCard/bugCard'
 
 export default()=>{
     const dispatch = useDispatch();
@@ -11,10 +11,13 @@ export default()=>{
         dispatch(getBugs());
     },[bugs.length < 1])
 
+    function BugClicked(name){
+
+    }
     return(
         <div className='page-container'>
             {bugs.map((bug,key)=>(
-                <BugCard key={key} bug={bug} />
+                <BugCard key={key} bug={bug} clicked={BugClicked}/>
 
             ))}
         </div>
